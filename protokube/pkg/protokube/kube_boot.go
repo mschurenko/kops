@@ -50,6 +50,10 @@ type KubeBoot struct {
 	ModelDir string
 	// Etcd container registry location.
 	EtcdImageSource string
+	// Etcd election timeout
+	EtcdElectionTimeout string
+	// Etcd heartbeat interval
+	EtcdHeartbeatInterval string
 	// TLSCA is the path to a client ca for etcd
 	TLSCA string
 	// TLSCert is the path to a tls certificate for etcd
