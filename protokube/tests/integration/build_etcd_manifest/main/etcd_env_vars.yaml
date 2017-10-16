@@ -8,6 +8,8 @@ logFile: /var/log/etcd.log
 peerPort: 2380
 podName: etcd-server-main
 volumeMountPath: /mnt/main
+electionTimeout: "1000"
+heartbeatInterval: "100"
 me:
   name: node0
   internalName: node0.internal
@@ -53,6 +55,10 @@ spec:
       value: new
     - name: ETCD_INITIAL_CLUSTER_TOKEN
       value: token-main
+    - name: ETCD_ELECTION_TIMEOUT
+      value: "1000"
+    - name: ETCD_HEARTBEAT_INTERVAL
+      value: "100"
     - name: ETCD_INITIAL_CLUSTER
       value: node0=http://node0.internal:2380,node1=http://node1.internal:2380,node2=http://node2.internal:2380
     image: gcr.io/google_containers/etcd:2.2.1

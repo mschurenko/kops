@@ -14,8 +14,6 @@ peerKey: /srv/kubernetes/etcd-key.pem
 peerPort: 2380
 podName: etcd-server-main
 volumeMountPath: /mnt/main
-electionTimeout: "1000"
-heartbeatInterval: "100"
 me:
   name: node0
   internalName: node0.internal
@@ -61,10 +59,6 @@ spec:
       value: new
     - name: ETCD_INITIAL_CLUSTER_TOKEN
       value: token-main
-    - name: ETCD_ELECTION_TIMEOUT
-      value: "1000"
-    - name: ETCD_HEARTBEAT_INTERVAL
-      value: "100"
     - name: ETCD_PEER_TRUSTED_CA_FILE
       value: /srv/kubernetes/ca.crt
     - name: ETCD_PEER_CERT_FILE
